@@ -1,13 +1,18 @@
-# GNS3 Docker
+# GNS3-Server Docker Deployment
 
-A dockerfile for gns3-server, can run gns3 with remote-server mode. You can deploy it on `wsl` or `vps`.
+This respository contains the GNS3-Server deployment as a Docker container.  The compose file providees the GNS3 Remote Server and DHCP server neatly packaged and ready for deployment in a single stack.  Utilise the remote server from a secondary device like a laptop, which may have less compute power from your Docker host/server.  The container is deployable on 'wsl' within Windows, a 'vps' running linux, within a Proxmox Cluster, or a even bare metal server running Docker.
+
+## Dependencies:
+- Docker (assumed Docker cli, but could be deployed with a container manager like Portainer, but that process won't be covered here)
+- Docker Compose
+- Your favourite text editor; such as vim, nano, gkedit, VSCodium
 
 
 
 **What is the different between local-server, vm (vmware or others) and remote-server?**
 
-- GNS3 is C/S arch，`gns3-all-in-one.exe` is just a client gui installer
-- if you use local-server,   `gns3-server.exe` will start on you local OS
+- GNS3 is C/S arch，`gns3-x.x.x-all-in-one.exe` is just a client gui installer.  This would be your install file for the secondary device mentioned above, which will connect to your gns3-server deployed in Docker.
+- if you use local-server, `gns3-server.exe` will start on you local OS
 - if you use vm, `gns3` will use call `hyperviser` to open vm, and you can simple regard vm as a `ubuntu` images with running `gns3-server` 
 - if you use remote-server, it is just like vm server, but you can deploy it simple and much simpler!
 
